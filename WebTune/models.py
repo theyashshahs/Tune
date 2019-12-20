@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class Album(models.Model):
@@ -6,6 +7,9 @@ class Album(models.Model):
     album_title = models.CharField(max_length=500)
     genre = models.CharField(max_length=100)
     album_logo = models.ImageField(upload_to='=logos/', blank=True)
+
+    def get_absolute_url(self):
+        reverse('WebTune:detail', kwargs={'pk': self.pk})
 
     def __str__(self):
         return self.album_title + ' => ' + self.artist

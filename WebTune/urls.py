@@ -6,8 +6,8 @@ app_name = 'WebTune'
 
 urlpatterns = [
     url(r'^$', views.IndexView.as_view(), name='index'),  # landing page
-    url(r'^(?P<pk>[0-9]+)/$', views.DetailView.as_view(), name='details'),  # details of the songs
-    # url(r'^(?P<album_id>[0-9]+)/favourite/$', views.favourite, name='favourite'),  # favourite function
+    url(r'^(?P<pk>[0-9]+)/$', views.DetailView.as_view(), name='detail'),  # details of the songs
+    url(r'^album/add/$', views.AlbumCreateView.as_view(), name='album-add'),  # album addition view
 ]
 
 urlpatterns += staticfiles_urlpatterns()
