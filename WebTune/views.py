@@ -16,8 +16,8 @@ def details(request, album_id):
 
 
 def favourite(request, album_id):
-    album = get_object_or_404(Album, pk=album_id)
-    print(request.POST['song'])
+    album = get_object_or_404(Album, pk=album_id)  # obtaining album
+    # print(request.POST['song'])
     try:
         selected_song = album.song_set.get(pk=request.POST['song'])
         selected_song.is_favourite = True
