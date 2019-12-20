@@ -1,0 +1,31 @@
+{% if all_albums %}
+<h2>Here are all the all Albums:</h2>
+
+<ul>
+    {% for album in all_albums %}
+    <li>
+        <a href = "{% url 'music:details' album.id %}"> {{ album.album_title }} </a>
+    </li>
+    {% endfor %}
+</ul>
+
+{% else %}
+<h2> You have gone to a wrong template </h2>
+
+{% endif %}
+
+
+{% comment "" %}
+
+<form action="{% url 'music:favourite' album_id %}" method = "POST">
+    {% csrf_token %}
+    {% for song in album.song_set.all %}
+        <input type="radio" id="song{{forloop.counter}}" name="song" value="{{ song.id }}" >
+        <label for="song{{forloop.counter}}">
+            {{ song.song_title }}
+        </label>
+    {% endfor %}
+</form>
+
+
+ {% endcomment %}
