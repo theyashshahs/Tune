@@ -3,6 +3,7 @@ from .models import Album, Song
 from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
+
 class IndexView(generic.ListView):
     template_name = 'WebTune/index.html'
     context_object_name = 'all_albums'
