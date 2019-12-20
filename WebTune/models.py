@@ -5,7 +5,7 @@ class Album(models.Model):
     artist = models.CharField(max_length=250)
     album_title = models.CharField(max_length=500)
     genre = models.CharField(max_length=100)
-    album_logo = models.ImageField(upload_to='logos/')
+    album_logo = models.ImageField(upload_to='=logos/', blank=True)
 
     def __str__(self):
         return self.album_title + ' => ' + self.artist
