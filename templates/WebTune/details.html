@@ -23,7 +23,7 @@
         <label for="song{{ forloop.counter }}">
             {{ song.song_title }}
             {% if song.is_favourite %}
-                <img src="{% static 'WebTune/images/favourite.png' %}">
+                <img src="{% static 'WebTune/images/favourite.png' %}" alt="favourite-star">
             {% endif %}
         </label><br>
     {% endfor %}
