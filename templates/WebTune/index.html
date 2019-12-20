@@ -1,25 +1,25 @@
 {% extends 'WebTune/base.html' %}
-
 {% load static %}
 
+{% block title %}
+    Album Details
+{% endblock %}
 
-<body>
-{% if all_albums %}
-<h2>Here are all the all Albums:</h2>
+{% block body %}
+    {% if all_albums %}
+    <ul>
+        {% for album in all_albums %}
+        <li>
+            <a href = "{% url 'WebTune:details' album.id %}"> {{ album.album_title }} </a>
+        </li>
+        {% endfor %}
+    </ul>
 
-<ul>
-    {% for album in all_albums %}
-    <li>
-        <a href = "{% url 'WebTune:details' album.id %}"> {{ album.album_title }} </a>
-    </li>
-    {% endfor %}
-</ul>
+    {% else %}
+    <h2> You have gone to a wrong template </h2>
 
-{% else %}
-<h2> You have gone to a wrong template </h2>
-
-{% endif %}
-</body>
+    {% endif %}
+{% endblock %}
 
 {% comment "" %}
 
