@@ -1,7 +1,6 @@
-from django.shortcuts import render, get_object_or_404
-from .models import Album, Song
 from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from WebTune.models import Album, Song
 
 
 class IndexView(generic.ListView):
