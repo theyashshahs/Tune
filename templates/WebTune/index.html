@@ -8,13 +8,15 @@
         <div class="col-sm-12">
 {#            <h3>{{ user.username }}'s Albums</h3>#}
         </div>
-{#        {% if albums %}#}
+        {% if all_albums %}
             {% for album in all_albums %}
                 <div class="col-sm-4 col-lg-2">
                     <div class="thumbnail">
                         <a href="{% url 'WebTune:detail' album.id %}">
-                            {% if album.image %}
-                            <img src="{{ album.album_logo.url }}" class="img-responsive" alt="logo" />
+                            {% if album.album_logo %}
+                                <img src="{{ album.album_logo.url }}" class="img-responsive" alt="logo" />
+                            {% else %}
+                                <h3>No image to display</h3>
                             {% endif %}
                         </a>
                         <div class="caption">
@@ -44,7 +46,7 @@
                 {% cycle '' '' '' '' '' '<div class="clearfix visible-lg"></div>' %}
             {% endfor %}
 
-{#        {% else %}#}
+        {% else %}
             <div class="col-sm-12">
                 <br>
                 <a href="#">
@@ -53,7 +55,7 @@
                     </button>
                 </a>
             </div>
-{#        {% endif %}#}
+        {% endif %}
     </div>
 
     <!-- If user searches and there are songs -->
