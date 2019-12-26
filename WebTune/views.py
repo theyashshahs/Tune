@@ -27,6 +27,6 @@ class AlbumUpdateView(UpdateView):
     fields = ['artist', 'album_title', 'genre', 'album_logo']
 
 
-class AlbumDeleteView(DetailView):
+class AlbumDeleteView(DeleteView):
     model = Album
     success_url = reverse_lazy('WebTune:index')
