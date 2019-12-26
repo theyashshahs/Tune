@@ -29,7 +29,7 @@
 
                 <ul class="nav nav-pills" style="margin-bottom: 10px;">
                     <li role="presentation" class="active"><a href="{% url 'WebTune:detail' album.id %}">View All</a></li>
-{#                    <li role="presentation"><a href="{% url 'WebTune:create_song' album.id %}">Add New Song</a></li>#}
+                    <li role="presentation"><a href="#">Add New Song</a></li>
                 </ul>
 
                 <div class="panel panel-default">
@@ -62,17 +62,17 @@
                                         </a>
                                     </td>
                                     <td>
-{#                                        <a href="{% url 'music:favorite' song.id %}" class="btn-favorite"><span class="glyphicon glyphicon-star {% if song.is_favorite %}active{% endif %}"></span></a>#}
+                                        <a href="#" class="btn-favorite"><span class="glyphicon glyphicon-star {% if song.is_favorite %}active{% endif %}"></span></a>
                                     </td>
-{#                                    <td>#}
-{#                                        <form action="{% url 'music:delete_song' album.id song.id %}" method="post" style="display: inline;">#}
-{#                                            {% csrf_token %}#}
-{#                                            <input type="hidden" name="song_id" value="{{ song.id }}" />#}
-{#                                            <button type="submit" class="btn btn-danger btn-xs">#}
-{#                                                <span class="glyphicon glyphicon-remove"></span>&nbsp; Delete#}
-{#                                            </button>#}
-{#                                        </form>#}
-{#                                    </td>#}
+                                    <td>
+                                        <form action="#" method="post" style="display: inline;">
+                                            {% csrf_token %}
+                                            <input type="hidden" name="song_id" value="{{ song.id }}" />
+                                            <button type="submit" class="btn btn-danger btn-xs">
+                                                <span class="glyphicon glyphicon-remove"></span>&nbsp; Delete
+                                            </button>
+                                        </form>
+                                    </td>
                                 </tr>
                             {% endfor %}
                             </tbody>

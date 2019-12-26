@@ -1,4 +1,4 @@
-{% extends 'music/base.html' %}
+{% extends 'WebTune/base.html' %}
 {% block title %}Add a New Album{% endblock %}
 {% block albums_active %}active{% endblock %}
 
@@ -16,7 +16,7 @@
                     {% endif %}
                     <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
                         {% csrf_token %}
-                        {% include 'music/form_template.html' %}
+                        {% include 'WebTune/form-template.html' %}
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
                                 <button type="submit" class="btn btn-success">Submit</button>
@@ -30,8 +30,8 @@
         <div class="col-sm-12 col-md-5">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <h3>What is Viberr?</h3>
-                    <p>Viberr is an app that allows you to upload and store all of your music on the cloud.</p>
+                    <h3>What is Tune?</h3>
+                    <p>Tune is an app that allows you to upload and store all of your music on the cloud.</p>
                     <h3>How do I add music?</h3>
                     <p>First, create a new album by filling out the form on this page. Once an album is created you will be able to add/upload songs.</p>
                     <h3>What are some Album logo best practices?</h3>
