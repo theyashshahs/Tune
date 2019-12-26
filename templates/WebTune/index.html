@@ -4,17 +4,18 @@
 {% block body %}
 <div class="albums-container container-fluid">
 
-    <!-- Albums -->
     <div class="row">
         <div class="col-sm-12">
 {#            <h3>{{ user.username }}'s Albums</h3>#}
         </div>
-        {% if albums %}
-            {% for album in albums %}
+{#        {% if albums %}#}
+            {% for album in all_albums %}
                 <div class="col-sm-4 col-lg-2">
                     <div class="thumbnail">
                         <a href="{% url 'WebTune:detail' album.id %}">
+                            {% if album.image %}
                             <img src="{{ album.album_logo.url }}" class="img-responsive" alt="logo" />
+                            {% endif %}
                         </a>
                         <div class="caption">
                             <h2>{{ album.album_title }}</h2>
@@ -33,7 +34,7 @@
                             </form>
 
                             <!-- Favorite Album -->
-                            <a href="{% url 'WebTune:favorite_album' album.id %}" class="btn btn-default btn-sm btn-favorite" role="button">
+                            <a href="#" class="btn btn-default btn-sm btn-favorite" role="button">
                                 <span class="glyphicon glyphicon-star {% if album.is_favorite %}active{% endif %}"></span>
                             </a>
 
@@ -43,7 +44,7 @@
                 {% cycle '' '' '' '' '' '<div class="clearfix visible-lg"></div>' %}
             {% endfor %}
 
-        {% else %}
+{#        {% else %}#}
             <div class="col-sm-12">
                 <br>
                 <a href="#">
@@ -52,7 +53,7 @@
                     </button>
                 </a>
             </div>
-        {% endif %}
+{#        {% endif %}#}
     </div>
 
     <!-- If user searches and there are songs -->
@@ -80,7 +81,7 @@
                                         <td>{{ song.song_title }}</td>
                                         <td>{{ song.album.artist }}</td>
                                         <td>
-                                            <a target="_blank" href="{{ song.audio_file.url }}">
+{#                                            <a target="_blank" href="{{ song.audio_file.url }}">#}
                                                 <button type="button" class="btn btn-success btn-xs">
                                                     <span class="glyphicon glyphicon-play"></span>&nbsp; Play
                                                 </button>
