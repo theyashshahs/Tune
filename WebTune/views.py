@@ -1,5 +1,6 @@
 from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
 from WebTune.models import Album, Song
 
 
@@ -19,3 +20,13 @@ class DetailView(generic.DetailView):
 class AlbumCreateView(CreateView):
     model = Album
     fields = ['artist', 'album_title', 'genre', 'album_logo']
+
+
+class AlbumUpdateView(UpdateView):
+    model = Album
+    fields = ['artist', 'album_title', 'genre', 'album_logo']
+
+
+class AlbumDeleteView(DetailView):
+    model = Album
+    success_url = reverse_lazy('WebTune:index')
