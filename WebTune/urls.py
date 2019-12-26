@@ -1,6 +1,8 @@
 from django.conf.urls import url
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.conf import settings
 from . import views
+
 
 app_name = 'WebTune'
 
@@ -12,4 +14,5 @@ urlpatterns = [
     url(r'^album/(?P<pk>[0-9]+)/delete/', views.AlbumDeleteView.as_view(), name='album-delete'),
 ]
 
-urlpatterns += staticfiles_urlpatterns()
+if settings.DEBUG:
+    urlpatterns += staticfiles_urlpatterns()
