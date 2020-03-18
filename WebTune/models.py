@@ -9,7 +9,7 @@ class Album(models.Model):
     album_logo = models.ImageField(upload_to='=logos/', blank=True)
 
     def get_absolute_url(self):
-        reverse('WebTune:detail', kwargs={'pk': self.pk})
+        return reverse('WebTune:detail', kwargs={'pk': self.pk})
 
     def __str__(self):
         return self.album_title + ' => ' + self.artist
