@@ -110,4 +110,6 @@ venv.bak/
 .idea/
 
 # media files
-media/ 
+media/
+
+.env
