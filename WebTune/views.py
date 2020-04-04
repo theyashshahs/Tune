@@ -12,19 +12,26 @@ class IndexView(generic.ListView):
         return Album.objects.all()
 
 
-class DetailView(generic.DetailView):
+class AlbumDetailView(generic.DetailView):
     model = Album
-    template_name = 'WebTune/details.html'
+    template_name = 'WebTune/album_detail.html'
+
+
+class SongDetailView(generic.DetailView):
+    model = Song
+    template_name = 'WebTune/song_detail.html'
 
 
 class AlbumCreateView(CreateView):
     model = Album
     fields = ['artist', 'album_title', 'genre', 'album_logo']
+    success_url = reverse_lazy('WebTune:index')
 
 
 class AlbumUpdateView(UpdateView):
     model = Album
     fields = ['artist', 'album_title', 'genre', 'album_logo']
+    success_url = reverse_lazy('WebTune:index')
 
 
 class AlbumDeleteView(DeleteView):
@@ -34,12 +41,14 @@ class AlbumDeleteView(DeleteView):
 
 class SongCreateView(CreateView):
     model = Song
-    fields = ['album', 'song_title', 'song_file']
+    fields = ['album', 'song_title', 'audio_file']
+    success_url = reverse_lazy('WebTune:index')
 
 
 class SongUpdateView(UpdateView):
     model = Song
-    fields = ['album', 'song_title', 'song_file']
+    fields = ['album', 'song_title', 'audio_file']
+    success_url = reverse_lazy('WebTune:index')
 
 
 class SongDeleteView(DeleteView):

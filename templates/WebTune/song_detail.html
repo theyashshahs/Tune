@@ -11,7 +11,7 @@
             <div class="col-sm-4 col-md-3">
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        <a href="{% url 'WebTune:detail' album.id %}">
+                        <a href="{% url 'WebTune:album-detail' album.id %}">
                             {% if album.album_logo %}
                                 <img src="{{ album.album_logo.url }}" class="img-responsive" alt="logo">
                             {% else %}
@@ -28,7 +28,6 @@
             <div class="col-sm-8 col-md-9">
 
                 <ul class="nav nav-pills" style="margin-bottom: 10px;">
-                    <li role="presentation" class="active"><a href="{% url 'WebTune:detail' album.id %}">View All</a></li>
                     <li role="presentation"><a href="{% url 'WebTune:song-add' %}">Add New Song</a></li>
                 </ul>
 
