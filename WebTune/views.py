@@ -30,3 +30,18 @@ class AlbumUpdateView(UpdateView):
 class AlbumDeleteView(DeleteView):
     model = Album
     success_url = reverse_lazy('WebTune:index')
+
+
+class SongCreateView(CreateView):
+    model = Song
+    fields = ['album', 'song_title', 'song_file']
+
+
+class SongUpdateView(UpdateView):
+    model = Song
+    fields = ['album', 'song_title', 'song_file']
+
+
+class SongDeleteView(DeleteView):
+    model = Song
+    success_url = reverse_lazy('WebTune:index')
