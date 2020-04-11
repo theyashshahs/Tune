@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 from decouple import config
+from django_heroku 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -146,11 +147,4 @@ AWS_DEFAULT_ACL = None
 
 DEFAULT_FILE_STORAGE = 'Tune.storage_backends.MediaStorage'
 
-
-
-
-
-
-
-
-
+django_heroku.settings(locals())
