@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'WebTune.apps.WebtuneConfig',
+    'users.apps.UsersConfig',
     'storages'
 ]
 
