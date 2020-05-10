@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'WebTune.apps.WebtuneConfig',
     'users.apps.UsersConfig',
-    'storages'
+    'storages',
+    'crispy_forms'
 ]
 
 MIDDLEWARE = [
@@ -124,6 +125,8 @@ STATIC_URL = '/staticfiles/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
