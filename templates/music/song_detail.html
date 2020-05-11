@@ -1,4 +1,4 @@
-{% extends 'tune/base.html' %}
+{% extends 'music/base.html' %}
 {% block title %}{{ album }}{% endblock %}
 {% block albums_active %}active{% endblock %}
 
@@ -11,7 +11,7 @@
             <div class="col-sm-4 col-md-3">
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        <a href="{% url 'tune:album-detail' album.id %}">
+                        <a href="{% url 'music:album-detail' album.id %}">
                             {% if album.album_logo %}
                                 <img src="{{ album.album_logo.url }}" class="img-responsive" alt="logo">
                             {% else %}
@@ -28,7 +28,7 @@
             <div class="col-sm-8 col-md-9">
 
                 <ul class="nav nav-pills" style="margin-bottom: 10px;">
-                    <li role="presentation"><a href="{% url 'tune:song-add' %}">Add New Song</a></li>
+                    <li role="presentation"><a href="{% url 'music:song-add' %}">Add New Song</a></li>
                 </ul>
 
                 <div class="panel panel-default">

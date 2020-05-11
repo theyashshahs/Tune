@@ -39,8 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'WebTune.apps.WebtuneConfig',
     'users.apps.UsersConfig',
+    'music.apps.MusicConfig',
     'storages',
     'crispy_forms'
 ]
@@ -122,7 +122,7 @@ USE_L10N = True
 USE_TZ = True
 
 # Login redirect url 
-LOGIN_REDIRECT_URL = 'tune:index'
+LOGIN_REDIRECT_URL = 'music:index'
 
 STATIC_URL = '/staticfiles/'
 STATICFILES_DIRS = [

@@ -1,5 +1,5 @@
 from django.test import TestCase
-from WebTune.models import Album
+from music.models import Album
 
 
 class AlbumTestCase(TestCase):

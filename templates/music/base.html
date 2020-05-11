@@ -38,16 +38,14 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="{% url 'tune:index' %}"
-						>Tune</a
-					>
+					<a class="navbar-brand" href="{% url 'music:index' %}">Tune</a>
 				</div>
 
 				<!-- Items -->
 				<div class="collapse navbar-collapse" id="topNavBar">
 					<ul class="nav navbar-nav">
 						<li class="{% block albums_active %}{% endblock %}">
-							<a href="{% url 'tune:index' %}"
+							<a href="{% url 'music:index' %}"
 								><span
 									class="glyphicon glyphicon-folder-open"
 									aria-hidden="true"
@@ -70,7 +68,7 @@
 						class="navbar-form navbar-left"
 						role="search"
 						method="get"
-						action="{% url 'tune:index' %}"
+						action="{% url 'music:index' %}"
 					>
 						<div class="form-group">
 							<input
@@ -87,7 +85,7 @@
 
 					<ul class="nav navbar-nav navbar-right">
 						<li>
-							<a href="{% url 'tune:album-add' %}">
+							<a href="{% url 'music:album-add' %}">
 								<span
 									class="glyphicon glyphicon-plus"
 									aria-hidden="true"
@@ -96,7 +94,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="{% url 'tune:song-add' %}">
+							<a href="{% url 'music:song-add' %}">
 								<span
 									class="glyphicon glyphicon-plus"
 									aria-hidden="true"
@@ -110,7 +108,16 @@
 									class="glyphicon glyphicon-off"
 									aria-hidden="true"
 								></span
-								>&nbsp; Sign Up
+								>&nbsp; Register
+							</a>
+						</li>
+						<li>
+							<a href="{% url 'users:login' %}">
+								<span
+									class="glyphicon glyphicon-off"
+									aria-hidden="true"
+								></span
+								>&nbsp; Login
 							</a>
 						</li>
 					</ul>
