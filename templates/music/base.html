@@ -1,5 +1,4 @@
-{% load static %}
-{% load crispy_forms_tags %}
+{% load static %} {% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -38,7 +37,9 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="{% url 'music:index' %}">Tune</a>
+					<a class="navbar-brand" href="{% url 'music:index' %}"
+						>Tune</a
+					>
 				</div>
 
 				<!-- Items -->
@@ -102,6 +103,26 @@
 								>&nbsp; Add Song
 							</a>
 						</li>
+						{% if user.is_authenticated %}
+						<li>
+							<a href="#">
+								<span
+									class="glyphicon glyphicon-user"
+									aria-hidden="true"
+								></span
+								>&nbsp; {{user.username}}
+							</a>
+						</li>
+						<li>
+							<a href="{% url 'users:logout' %}">
+								<span
+									class="glyphicon glyphicon-remove-circle"
+									aria-hidden="true"
+								></span
+								>&nbsp; Logout
+							</a>
+						</li>
+						{% else %}
 						<li>
 							<a href="{% url 'users:register' %}">
 								<span
@@ -120,17 +141,15 @@
 								>&nbsp; Login
 							</a>
 						</li>
+						{% endif %}
 					</ul>
 				</div>
 			</div>
 		</nav>
-		{% if messages %}
-			{% for message in messages %}
-				<div class="alert alert-{{ message.tags }}" style="width: 450px;">
-					{{ message }}
-				</div>
-			{% endfor %}
-		{% endif %}
-		{% block body %} {% endblock %}
+		{% if messages %} {% for message in messages %}
+		<div class="alert alert-{{ message.tags }}" style="width: 450px;">
+			{{ message }}
+		</div>
+		{% endfor %} {% endif %} {% block body %} {% endblock %}
 	</body>
 </html>
