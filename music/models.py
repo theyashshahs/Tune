@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 
 class Album(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, default=None, null=True, on_delete=models.CASCADE)
     artist = models.CharField(max_length=250)
     album_title = models.CharField(max_length=500)
     genre = models.CharField(max_length=100)

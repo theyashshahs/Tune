@@ -123,13 +123,14 @@ USE_TZ = True
 
 # Login redirect url 
 LOGIN_REDIRECT_URL = 'music:index'
+LOGIN_URL = 'users:login'
 
 STATIC_URL = '/staticfiles/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
-CRISPY_TEMPLATE_PACK = 'bootstrap3'
+# CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
