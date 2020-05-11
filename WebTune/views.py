@@ -16,30 +16,30 @@ class IndexView(generic.ListView):
         return Album.objects.all()
 
 
-class UserView(View):
-    form_class = UserForm
-    template_name = 'tune/register.html'
+# class UserView(View):
+#     form_class = UserForm
+#     template_name = 'tune/register.html'
 
-    def get(self, request):
-        form = self.form_class(None)
-        return render(request, self.template_name, {'form': form})
+#     def get(self, request):
+#         form = self.form_class(None)
+#         return render(request, self.template_name, {'form': form})
 
-    def post(self, request):
-        form = self.form_class(request.POST)
+#     def post(self, request):
+#         form = self.form_class(request.POST)
 
-        if form.is_valid():
-            user = form.save(commit=False)
-            username = form.cleaned_data['username']
-            password = form.cleaned_data['password']
-            user.set_password(password)
-            user.save()
-            user = authenticate(username=username, password=password)
+#         if form.is_valid():
+#             user = form.save(commit=False)
+#             username = form.cleaned_data['username']
+#             password = form.cleaned_data['password']
+#             user.set_password(password)
+#             user.save()
+#             user = authenticate(username=username, password=password)
 
-            if user.is_active:
-                login(request, user)
-                return redirect('tune:index')
+#             if user.is_active:
+#                 login(request, user)
+#                 return redirect('tune:index')
 
-        return render(request, self.template_name, {'form': form})
+#         return render(request, self.template_name, {'form': form})
 
 class AlbumDetailView(generic.DetailView):
     model = Album

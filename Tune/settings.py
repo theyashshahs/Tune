@@ -121,6 +121,9 @@ USE_L10N = True
 
 USE_TZ = True
 
+# Login redirect url 
+LOGIN_REDIRECT_URL = 'tune:index'
+
 STATIC_URL = '/staticfiles/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
