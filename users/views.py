@@ -10,7 +10,7 @@ def registration(request):
             form.save()
             username = form.cleaned_data.get('username')
             messages.success(request, f'Account created for {username} 😊')
-            return redirect('WebTune:index')
+            return redirect('tune:index')
 
     else:
         form = UserRegisterForm()

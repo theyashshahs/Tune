@@ -1,4 +1,4 @@
-{% extends 'WebTune/base_visitor.html' %}
+{% extends 'tune/base_visitor.html' %}
 {% block title %}Register{% endblock %}
 {% block register_active %}active{% endblock %}
 
@@ -15,7 +15,7 @@
                     {% endif %}
                     <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
                         {% csrf_token %}
-                        {% include 'WebTune/form_template.html' %}
+                        {% include 'tune/form_template.html' %}
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
                                 <button type="submit" class="btn btn-success">Sign Up</button>

@@ -9,7 +9,7 @@ from WebTune.forms import UserForm
 
 
 class IndexView(generic.ListView):
-    template_name = 'WebTune/index.html'
+    template_name = 'tune/index.html'
     context_object_name = 'all_albums'
 
     def get_queryset(self):
@@ -18,7 +18,7 @@ class IndexView(generic.ListView):
 
 class UserView(View):
     form_class = UserForm
-    template_name = 'WebTune/register.html'
+    template_name = 'tune/register.html'
 
     def get(self, request):
         form = self.form_class(None)
@@ -37,49 +37,49 @@ class UserView(View):
 
             if user.is_active:
                 login(request, user)
-                return redirect('WebTune:index')
+                return redirect('tune:index')
 
         return render(request, self.template_name, {'form': form})
 
 class AlbumDetailView(generic.DetailView):
     model = Album
-    template_name = 'WebTune/album_detail.html'
+    template_name = 'tune/album_detail.html'
 
 
 class SongDetailView(generic.DetailView):
     model = Song
-    template_name = 'WebTune/song_detail.html'
+    template_name = 'tune/song_detail.html'
 
 
 class AlbumCreateView(CreateView):
     model = Album
     fields = ['artist', 'album_title', 'genre', 'album_logo']
-    success_url = reverse_lazy('WebTune:index')
+    success_url = reverse_lazy('tune:index')
 
 
 class AlbumUpdateView(UpdateView):
     model = Album
     fields = ['artist', 'album_title', 'genre', 'album_logo']
-    success_url = reverse_lazy('WebTune:index')
+    success_url = reverse_lazy('tune:index')
 
 
 class AlbumDeleteView(DeleteView):
     model = Album
-    success_url = reverse_lazy('WebTune:index')
+    success_url = reverse_lazy('tune:index')
 
 
 class SongCreateView(CreateView):
     model = Song
     fields = ['album', 'song_title', 'audio_file']
-    success_url = reverse_lazy('WebTune:index')
+    success_url = reverse_lazy('tune:index')
 
 
 class SongUpdateView(UpdateView):
     model = Song
     fields = ['album', 'song_title', 'audio_file']
-    success_url = reverse_lazy('WebTune:index')
+    success_url = reverse_lazy('tune:index')
 
 
 class SongDeleteView(DeleteView):
     model = Song
-    success_url = reverse_lazy('WebTune:index')
+    success_url = reverse_lazy('tune:index')
