@@ -1,0 +1,23 @@
+{% extends 'users/base_visitor.html' %}
+{% block title %}Logout{% endblock %}
+{% block register_active %}active{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12 col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h2>You have been Logged out!</h2>
+                    {% if error_message %}
+                        <p><strong>{{ error_message }}</strong></p>
+                    {% endif %}
+                </div>
+                <div class="panel-footer">
+                    Want to Sign In again? <a href="{% url 'users:login' %}">Sign In</a> 
+                </div> 
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
