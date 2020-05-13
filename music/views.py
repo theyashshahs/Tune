@@ -8,7 +8,7 @@ from django.contrib.auth.mixins import UserPassesTestMixin
 from django.urls import reverse_lazy
 from music.models import Album, Song
 
-
+@method_decorator(login_required, name='dispatch')
 class IndexListView(generic.ListView):
     model = Album
     template_name = 'music/index.html'
@@ -22,8 +22,6 @@ class AlbumDetailView(generic.DetailView):
     model = Album
     template_name = 'music/album_detail.html'
 
-    # def get_queryset(self):
-    #     return super(IndexListView, self).get_queryset().filter(user=self.request.user)
 
 
 class SongDetailView(generic.DetailView):
