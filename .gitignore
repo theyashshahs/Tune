@@ -112,4 +112,7 @@ venv.bak/
 # media files
 media/
 
+staticfiles/
+migrations/
+
 .env
