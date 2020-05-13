@@ -1,10 +1,11 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.urls import reverse
 from PIL import Image
 
 
 class Album(models.Model):
-    user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, default=None, null=True, on_delete=models.CASCADE)
     artist = models.CharField(max_length=250)
     album_title = models.CharField(max_length=500)
     genre = models.CharField(max_length=100)
@@ -12,6 +13,9 @@ class Album(models.Model):
 
     def __str__(self):
         return f'{self.user} {self.album_title}'
+
+    def get_absolute_url(self):
+        return reverse('music:album-detail', kwargs={'pk': self.pk})
 
     # def save(self, *args, **kwargs):
     #     super().save(*args, **kwargs)

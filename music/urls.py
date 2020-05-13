@@ -6,12 +6,11 @@ from . import views
 app_name = 'music'
 
 urlpatterns = [
-    url(r'^$', views.IndexView.as_view(), name='index'),  # landing page
-    # url(r'^register/$', views.UserView.as_view(), name='register'), # registration form
+    url(r'^$', views.IndexListView.as_view(), name='index'),  
     url(r'^album/(?P<pk>[0-9]+)/$', views.AlbumDetailView.as_view(),
-        name='album-detail'),  # details of the albums
+        name='album-detail'),  
     url(r'^album/add/$', views.AlbumCreateView.as_view(),
-        name='album-add'),  # album addition view
+        name='album-add'),  
     url(r'^album/update/(?P<pk>[0-9]+)/',
         views.AlbumUpdateView.as_view(), name='album-update'),
     url(r'^album/(?P<pk>[0-9]+)/delete/',

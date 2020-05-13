@@ -3,19 +3,16 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.views import generic
-from django.views.generic import View
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from music.models import Album, Song
-from music.forms import UserForm
 
 
-class IndexView(generic.ListView):
+class IndexListView(generic.ListView):
+    model = Album
     template_name = 'music/index.html'
     context_object_name = 'all_albums'
 
-    def get_queryset(self):
-        return Album.objects.all()
 
 class AlbumDetailView(generic.DetailView):
     model = Album
@@ -31,8 +28,11 @@ class SongDetailView(generic.DetailView):
 class AlbumCreateView(CreateView):
     model = Album
     fields = ['artist', 'album_title', 'genre', 'album_logo']
-    success_url = reverse_lazy('music:index')
+    # success_url = reverse_lazy('music:index')
 
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
 
 @method_decorator(login_required, name='dispatch')
 class AlbumUpdateView(UpdateView):
