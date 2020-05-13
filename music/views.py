@@ -77,29 +77,14 @@ class SongCreateView(CreateView):
 
 
 @method_decorator(login_required, name='dispatch')
-class SongUpdateView(UserPassesTestMixin, UpdateView):
+class SongUpdateView(UpdateView):
     model = Song
     fields = ['album', 'song_title', 'audio_file']
     success_url = reverse_lazy('music:index')
 
-    def test_func(self):
-        album = self.get_object()
-
-        if self.request.user == album.user:
-            return True
-    
-        return False
 
 
 @method_decorator(login_required, name='dispatch')
-class SongDeleteView(UserPassesTestMixin, DeleteView):
+class SongDeleteView(DeleteView):
     model = Song
     success_url = reverse_lazy('music:index')
-
-    def test_func(self):
-        album = self.get_object()
-
-        if self.request.user == album.user:
-            return True
-    
-        return False
