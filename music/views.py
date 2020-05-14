@@ -92,7 +92,7 @@ class SongCreateView(CreateView):
 @method_decorator(login_required, name='dispatch')
 class SongUpdateView(UpdateView):
     model = Song
-    fields = ['album', 'song_title', 'audio_file']
+    fields = ['song_title', 'audio_file']
     success_url = reverse_lazy('music:index')
 
 
