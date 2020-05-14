@@ -28,9 +28,10 @@ class Album(models.Model):
     #         img.save(self.album_logo.path)
 
 class Song(models.Model):
+    user = models.ForeignKey(User, default=None, null=True, on_delete=models.CASCADE)
     album = models.ForeignKey(Album, on_delete=models.CASCADE)
     song_title = models.CharField(max_length=100)
-    audio_file = models.FileField(upload_to='audio/', blank=True)
+    audio_file = models.FileField(upload_to='audio/', blank=True, default='audio/default.jpg')
     is_favourite = models.BooleanField(default=False)
 
     def __str__(self):

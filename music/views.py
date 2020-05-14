@@ -24,12 +24,12 @@ class AlbumDetailView(generic.DetailView):
 
 
 
-class SongDetailView(generic.DetailView):
-    model = Song
-    template_name = 'music/song_detail.html'
+# class SongDetailView(generic.DetailView):
+#     model = Song
+#     template_name = 'music/song_detail.html'
 
-    def get_queryset(self):
-        return super(IndexListView, self).get_queryset().filter(user=self.request.user)
+#     def get_queryset(self):
+#         return super(IndexListView, self).get_queryset().filter(user=self.request.user)
 
 
 @method_decorator(login_required, name='dispatch')
@@ -81,7 +81,6 @@ class SongUpdateView(UpdateView):
     model = Song
     fields = ['album', 'song_title', 'audio_file']
     success_url = reverse_lazy('music:index')
-
 
 
 @method_decorator(login_required, name='dispatch')
