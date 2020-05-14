@@ -22,6 +22,11 @@ class AlbumDetailView(generic.DetailView):
     model = Album
     template_name = 'music/album_detail.html'
 
+class SongListView(generic.ListView):
+    model = Song
+    template_name = 'music/songs.html'
+    context_object_name = 'song_list'
+
 
 
 # class SongDetailView(generic.DetailView):

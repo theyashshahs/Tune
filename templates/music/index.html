@@ -2,10 +2,8 @@
 {% block body %}
 <div class="albums-container container-fluid">
 	<div class="row">
-		<div class="col-sm-12">
-			{#<h3>{{ user.username }}'s Albums</h3>#}
-		</div>
-		{% if all_albums %} {% for album in all_albums %}
+		{% if all_albums %} 
+		{% for album in all_albums %}
 		<div class="col-sm-4 col-lg-2">
 			<div class="thumbnail">
 				<a href="{% url 'music:album-detail' album.id %}">
@@ -69,7 +67,8 @@
 			</div>
 		</div>
         {% cycle '' '' '' '' '' '<div class="clearfix visible-lg"></div>' %} 
-        {% endfor %} {% else %}
+		{% endfor %} 
+		<!-- 
 		<div class="col-sm-12">
 			<br />
 			<a href="#">
@@ -77,7 +76,7 @@
 					<span class="glyphicon glyphicon-plus"></span>&nbsp; Add an Album
 				</button>
 			</a>
-		</div>
+		</div> -->
 		{% endif %}
 	</div>
 

@@ -54,15 +54,15 @@
 								>&nbsp; Albums</a
 							>
 						</li>
-						<li class="{% block songs_active %}{% endblock %}">
-							<a href="#"
+						<!-- <li class="{% block songs_active %}{% endblock %}">
+							<a href="{% url 'music:song' %}"
 								><span
 									class="glyphicon glyphicon-music"
 									aria-hidden="true"
 								></span
 								>&nbsp; Songs</a
 							>
-						</li>
+						</li> -->
 					</ul>
 
 					<form
@@ -92,15 +92,6 @@
 									aria-hidden="true"
 								></span
 								>&nbsp; Add Album
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<span
-									class="glyphicon glyphicon-plus"
-									aria-hidden="true"
-								></span
-								>&nbsp; Add Song
 							</a>
 						</li>
 						{% if user.is_authenticated %}
