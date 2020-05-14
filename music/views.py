@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
@@ -72,9 +72,22 @@ class AlbumDeleteView(UserPassesTestMixin, DeleteView):
 @method_decorator(login_required, name='dispatch')
 class SongCreateView(CreateView):
     model = Song
-    fields = ['album', 'song_title', 'audio_file']
+    fields = ['song_title', 'audio_file']
     success_url = reverse_lazy('music:index')
 
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        id=self.kwargs['pk']
+
+        print(id)
+
+        form.instance.album = Album.objects.get(id=id)
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        pk=self.kwargs['pk']
+
+        return reverse('music:album-detail', kwargs={'pk':pk})
 
 @method_decorator(login_required, name='dispatch')
 class SongUpdateView(UpdateView):
