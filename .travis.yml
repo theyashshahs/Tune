@@ -6,6 +6,8 @@ python:
 install:
   - pip install -r requirements.txt
 
-script:
-  - python manage.py makemigrations
+before_script:
+  - cp .env.example .env
   - python manage.py migrate
+script:
+  - python manage.py test
