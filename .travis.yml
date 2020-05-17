@@ -8,6 +8,5 @@ install:
 
 before_script:
   - cp .env.example .env
-  - python manage.py test music.tests
 script:
   - python manage.py migrate
