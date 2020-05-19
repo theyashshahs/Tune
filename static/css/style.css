@@ -1,12 +1,17 @@
 body{
-    background: black;
+    background: #030303;
     background-size: cover;
 }
 
 .navbar{
     border-radius:0;
+    color: #403D42;
 }
 
 .navbar-brand{
     font-family: 'Satisfy', cursive;
+}
+
+.navbar-inverse {
+    height: 52px;
 }
