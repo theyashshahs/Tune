@@ -1,12 +1,19 @@
-﻿<h4 align="center"> Website for Music powered by
+<p align="center">
+<img src="static/music-without-bg.png" align="center" width="200"></p>
+<h1 align="center">Tune</h1>
+
+<h4 align="center"> Website for Music powered by
 <img src="https://img.icons8.com/windows/32/000000/django.png" width="30" align="center"></h4>
 <h4 align="center"> Files served using 
 <img src="https://img.icons8.com/color/96/000000/amazon-s3.png" width="30" align=""center></h4>
 <h4 align="center"> Deployed on 
-<img src="https://img.icons8.com/color/48/000000/heroku.png" width="30" align="center"></h4>
-
-
-# Tune
+<img src="https://img.icons8.com/color/48/000000/heroku.png" width="30" align="center">
+<br>
+<br>
+<a href="https://travis-ci.org/github/yashshah2820/Tune">
+    <img align="center" src="https://img.shields.io/travis/yashshah2820/Tune?style=for-the-badge">
+</a>
+</h4>
 
 
 ## Development 🔧
