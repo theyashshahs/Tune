@@ -3,15 +3,19 @@ body{
     background-size: cover;
 }
 
-.navbar{
+.navbar {
     border-radius:0;
     color: #403D42;
 }
 
-.navbar-brand{
+.navbar-brand {
     font-family: 'Satisfy', cursive;
 }
 
 .navbar-inverse {
     height: 52px;
+}
+
+.card {
+    background-color: #403D42;
 }
