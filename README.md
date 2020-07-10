@@ -42,12 +42,13 @@ $ source venv/bin/activate
 
 After creating virtual environment 
  
-### Start
+### Start 🏇
 ```sh
 $ pip install -r requirements.txt
 $ python manage.py makemigrations
 $ python manage.py migrate
 $ python manage.py runserver
 ```
-### Author :pencil:
-©️ [yashshah2820](https://github.com/yashshah2820) :tada:
+
+***
+<p align="center"> Made with ❤ by <a href="https://github.com/yashshah2820">Yash Shah</a></p>
