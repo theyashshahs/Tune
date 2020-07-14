@@ -23,7 +23,6 @@ class Song(models.Model):
     album = models.ForeignKey(Album, on_delete=models.CASCADE)
     song_title = models.CharField(max_length=100)
     audio_file = models.FileField(upload_to='audio/', blank=True, default='audio/default.jpg', validators=[validate_audio_extension])
-    # is_favourite = models.BooleanField(default=False)
 
     def __str__(self):
         return self.song_title
