@@ -1,12 +1,14 @@
-from django.shortcuts import render, redirect, reverse
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import UserPassesTestMixin
+from django.shortcuts import redirect, render, reverse
+from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views import generic
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.contrib.auth.mixins import UserPassesTestMixin
-from django.urls import reverse_lazy
+from django.views.generic.edit import CreateView, DeleteView, UpdateView
+
 from music.models import Album, Song
+
 
 @method_decorator(login_required, name='dispatch')
 class IndexListView(generic.ListView):

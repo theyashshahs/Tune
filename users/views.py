@@ -1,6 +1,8 @@
-from django.shortcuts import render, redirect
 from django.contrib import messages
+from django.shortcuts import redirect, render
+
 from users.forms import UserRegisterForm
+
 
 def registration(request):
     if request.method == 'POST':
@@ -16,4 +18,3 @@ def registration(request):
         form = UserRegisterForm()
 
     return render(request, 'users/registration.html', {'form': form})
-

@@ -1,6 +1,7 @@
-from django.db import models
 from django.contrib.auth.models import User
+from django.db import models
 from django.urls import reverse
+
 from music.validators import validate_audio_extension, validate_image_extension
 
 
